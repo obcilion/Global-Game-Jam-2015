@@ -5,8 +5,16 @@ using System;
 public class ShapeeBase : MonoBehaviour
 {
     public Queue<IAction> ActionQueue { get; private set; }
+    public bool IsDead { get; private set; }
 
     public event Action OnActionQueueEmpty;
+    
+
+    public void Reset()
+    {
+        ActionQueue = new Queue<IAction>();
+        IsDead = false;
+    }
 
     public void PerformNextAction(Action callback)
     {
@@ -26,6 +34,6 @@ public class ShapeeBase : MonoBehaviour
 
     private void Awake()
     {
-        ActionQueue = new Queue<IAction>();
+        Reset();
     }
 }
