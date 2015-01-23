@@ -125,9 +125,9 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 50
-  m_PreferredHeight: 50
-  m_FlexibleWidth: 1
+  m_PreferredWidth: 64
+  m_PreferredHeight: 64
+  m_FlexibleWidth: -1
   m_FlexibleHeight: -1
 --- !u!114 &93063152
 MonoBehaviour:
@@ -167,7 +167,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 93063153}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1691022180}
+        m_MethodName: AddMoveToShapee
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &93063153
@@ -619,7 +631,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -10, y: -10}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1003589205
 MonoBehaviour:
@@ -639,7 +651,7 @@ MonoBehaviour:
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 5
+    m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
     m_RichText: 1
@@ -819,9 +831,9 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 50
-  m_PreferredHeight: 50
-  m_FlexibleWidth: 1
+  m_PreferredWidth: 64
+  m_PreferredHeight: 64
+  m_FlexibleWidth: -1
   m_FlexibleHeight: -1
 --- !u!114 &1266435923
 MonoBehaviour:
@@ -861,7 +873,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1266435924}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1691022179}
+        m_MethodName: PerformNextAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1266435924
@@ -1085,6 +1109,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1691022177}
   - 114: {fileID: 1691022178}
+  - 114: {fileID: 1691022180}
+  - 114: {fileID: 1691022179}
   m_Layer: 0
   m_Name: Shapee_Triangle
   m_TagString: Untagged
@@ -1114,6 +1140,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e25b7e905a6f65b49985827f70ed9d2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1691022179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1691022176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c575b506847bca84ea3df65b8f488940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1691022180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1691022176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2afb2b817465c40498794cd3de84254d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1706063559
@@ -1202,7 +1250,7 @@ MonoBehaviour:
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 5
+    m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
     m_RichText: 1
@@ -1231,7 +1279,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -10, y: -10}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &2120175234
 GameObject:
@@ -1264,10 +1312,10 @@ RectTransform:
   - {fileID: 1266435921}
   m_Father: {fileID: 1585924354}
   m_RootOrder: 0
-  m_AnchorMin: {x: .836692393, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -.200000763, y: 0}
-  m_SizeDelta: {x: .299999237, y: 0}
+  m_AnchoredPosition: {x: 259.299988, y: 0}
+  m_SizeDelta: {x: -518.700012, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2120175236
 MonoBehaviour:

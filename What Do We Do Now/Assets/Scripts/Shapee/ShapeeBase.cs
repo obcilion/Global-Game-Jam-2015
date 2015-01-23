@@ -6,6 +6,11 @@ public class ShapeeBase : MonoBehaviour
 {
     public Queue<IAction> ActionQueue { get; private set; }
 
+    public void Init()
+    {
+        ActionQueue = new Queue<IAction>();
+    }
+
     public void PerformAction(Action callback)
     {
         if (ActionQueue.Count == 0)

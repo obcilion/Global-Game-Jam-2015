@@ -1,15 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PerformActionOnShapee : MonoBehaviour {
+public class PerformActionOnShapee : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    private ShapeeBase _myLittleShapee;
+
+
+    public void PerformNextAction()
+    {
+        _myLittleShapee.PerformAction(CallbackTest);
+    }
+
+    private void CallbackTest()
+    {
+#if DEBUG
+        Debug.Log("Callback from " + _myLittleShapee.name);
+#endif
+    }
+
+    // Use this for initialization
+    void Start()
+    {
+        _myLittleShapee = GetComponent<ShapeeBase>();
+    }
 }
