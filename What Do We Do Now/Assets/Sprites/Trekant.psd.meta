@@ -1,0 +1,135 @@
+fileFormatVersion: 2
+guid: 4091328c43d004b479ab81496e920f1e
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Arm_Left
+    21300002: Arm_Right
+    21300004: Eyebrow
+    21300006: Iris
+    21300008: Body_Triangle
+    21300010: Eye
+    21300012: Foot_Left
+    21300014: Foot_Right
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 150
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Arm_Left
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 444
+        width: 171
+        height: 47
+      alignment: 5
+      pivot: {x: 1, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Arm_Right
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 445
+        width: 157
+        height: 47
+      alignment: 4
+      pivot: {x: 0, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Eyebrow
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 386
+        width: 79
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Iris
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 389
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Body_Triangle
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 156
+        width: 299
+        height: 278
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Eye
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 260
+        width: 83
+        height: 112
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Foot_Left
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 77
+        width: 66
+        height: 62
+      alignment: 3
+      pivot: {x: 1, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Foot_Right
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 77
+        width: 66
+        height: 62
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
