@@ -1,15 +1,21 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using System;
 
-public class ShapeeBase : MonoBehaviour {
+public class ShapeeBase : MonoBehaviour
+{
+    public Queue<IAction> ActionQueue { get; private set; }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public void PerformAction(Action callback)
+    {
+        if (ActionQueue.Count == 0)
+        {
+            Debug.Log("No Actions in queue");
+            callback();
+            return;
+        }
+
+        ActionQueue.Dequeue().Perform(callback);
+        return;
+    }
 }

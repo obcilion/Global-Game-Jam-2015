@@ -46,6 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Actions\IAction.cs" />
+     <Compile Include="Assets\Scripts\Actions\MoveAction.cs" />
+     <Compile Include="Assets\Scripts\Controllers\ShapeeHerder.cs" />
      <Compile Include="Assets\Scripts\Shapee\ShapeeBase.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
