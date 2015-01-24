@@ -4,13 +4,11 @@ using System;
 
 public class ShapeeHerder
 {
-    public List<ShapeeBase> ActiveShapees { get; private set; }
+    public List<ShapeeBase> ShapeesInScene { get; private set; } // Contains all shapees in scene
+    public List<ShapeeBase> MovingShapees { get; private set; } // Moving Shapees with more actions left
+    public List<ShapeeBase> IdleShapees { get; private set; } // Shapees who have no more actions
 
-    private int _shapeesStarted = 0;
-    private int _shapeesNotDone = 0;
-    private int _shapeesDone = 0;
-
-    private Action _allActionsCompleteCallback;
+    private Action _allActionsDoneCallback;
 
     /// <summary>
     /// Initializes class
@@ -18,47 +16,52 @@ public class ShapeeHerder
     /// <returns>success of initialization</returns>
     public bool Initialize()
     {
-        ActiveShapees = new List<ShapeeBase>();
-
-        if (ActiveShapees.Count == 0)
-        {
-            Debug.LogError("Shapee list empty, add shapees before initializing!");
-            return false;
-        }
-
-        foreach(var shapee in ActiveShapees)
-        {
-            shapee.OnActionQueueEmpty += OnShapeeOutOfActions;
-        }
+        ShapeesInScene = new List<ShapeeBase>();
+        MovingShapees = new List<ShapeeBase>();
+        IdleShapees = new List<ShapeeBase>();
 
         Debug.Log("ShapeeHerder initialized");
         return true;
     }
 
-    /// <summary>
-    /// Performs next action on all active Shapees
-    /// </summary>
-    /// <param name="allActionsCompleteCallback">Called when all Shapees have acted</param>
-    public void TellShapeesToPerformAction(Action allActionsCompleteCallback)
+    public void PerformAllActions(Action allActionsDoneCallback)
     {
-        _allActionsCompleteCallback = allActionsCompleteCallback;
-        foreach(var shapee in ActiveShapees)
+        _allActionsDoneCallback = allActionsDoneCallback;
+        foreach (var shapee in ShapeesInScene)
+        {
+            MovingShapees.Add(shapee);
+        }
+        StartActions();
+    }
+
+    public void StartActions()
+    {
+        foreach (var shapee in MovingShapees)
         {
             shapee.PerformNextAction(ActionComplete);
         }
     }
 
     /// <summary>
-    /// Called when a Shapee completes its action
+    /// Called when a shapee finishes its action. Calls next action on shapee if <c>ActionQueue</c> is not empty
     /// </summary>
-    public void ActionComplete()
+    /// <param name="shapee">The shapee calling</param>
+    public void ActionComplete(ShapeeBase shapee)
     {
+        if (shapee.ActionQueue.Count > 0)
+        {
+            shapee.PerformNextAction(ActionComplete);
+        }
+        else
+        {
+            IdleShapees.Add(shapee);
 
-    }
+            if (IdleShapees.Count != MovingShapees.Count) return;
 
-    public void OnShapeeOutOfActions()
-    {
-        Debug.LogWarning("Shapee out of actions!");
-        ActionComplete();
+            Debug.Log("All shapees done moving");
+            IdleShapees.Clear();
+            MovingShapees.Clear();
+            _allActionsDoneCallback();
+        }
     }
 }

@@ -7,8 +7,7 @@ public class ShapeeBase : MonoBehaviour
     public Queue<IAction> ActionQueue { get; private set; }
     public bool IsDead { get; private set; }
 
-    public event Action OnActionQueueEmpty;
-    
+    private Action<ShapeeBase> _actionCompleteCallback;
 
     public void Reset()
     {
@@ -16,24 +15,19 @@ public class ShapeeBase : MonoBehaviour
         IsDead = false;
     }
 
-    public void PerformNextAction(Action callback)
+    public void PerformNextAction(Action<ShapeeBase> callback)
     {
-        if (ActionQueue.Count == 0)
-        {
-            Debug.Log("No Actions in queue");
-            if (OnActionQueueEmpty != null)
-            {
-                OnActionQueueEmpty();
-            }
-            return;
-        }
-
-        ActionQueue.Dequeue().Perform(callback);
-        return;
+        _actionCompleteCallback = callback;
+        ActionQueue.Dequeue().Perform(ActionComplete);
     }
 
     private void Awake()
     {
         Reset();
+    }
+
+    private void ActionComplete()
+    {
+        _actionCompleteCallback(this);
     }
 }

@@ -20,7 +20,12 @@ public class GameOverlord : MonoBehaviour
             return;
         }
         CurrentGameState = GameState.Execution;
-        _shapeeHerder.TellShapeesToPerformAction();
+        _shapeeHerder.PerformAllActions(ShapeesDoneMoving);
+    }
+
+    private void ShapeesDoneMoving()
+    {
+        CurrentGameState = GameState.Planning;
     }
 
     // Use this for initialization
