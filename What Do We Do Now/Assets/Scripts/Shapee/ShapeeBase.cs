@@ -20,7 +20,7 @@ public class ShapeeBase : MonoBehaviour
     public void PerformNextAction(Action<ShapeeBase> callback)
     {
         _actionCompleteCallback = callback;
-        ActionQueue.Dequeue().Perform(ActionComplete, gameObject);
+        ActionQueue.Dequeue().Perform(ActionComplete);
     }
 
     private void Awake()
