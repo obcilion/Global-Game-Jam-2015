@@ -64,6 +64,14 @@ public class ShapeeBase : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == 10) // obstacles
+        {
+            IsDead = true;
+        }
+    }
+
     private void ActionComplete()
     {
         _actionCompleteCallback(this);
