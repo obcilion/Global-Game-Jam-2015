@@ -20,6 +20,13 @@ public class ShapeeBase : MonoBehaviour
     public void PerformNextAction(Action<ShapeeBase> callback)
     {
         _actionCompleteCallback = callback;
+
+        if (ActionQueue.Count <= 0)
+        {
+            ActionComplete();
+            return;
+        }
+
         ActionQueue.Dequeue().Perform(ActionComplete);
     }
 
