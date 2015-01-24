@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using System.Collections;
 
 public class GameOverlord : MonoBehaviour
@@ -10,6 +11,7 @@ public class GameOverlord : MonoBehaviour
     }
 
     private ShapeeHerder _shapeeHerder;
+    [SerializeField] private List<GameObject> _shapees;
 
     public GameState CurrentGameState { get; private set; }
 
@@ -21,6 +23,11 @@ public class GameOverlord : MonoBehaviour
         }
         CurrentGameState = GameState.Execution;
         _shapeeHerder.PerformAllActions(ShapeesDoneMoving);
+    }
+
+    public void SpawnShapees()
+    {
+        //_shapeeHerder.ShapeesInScene.Add(Instantiate());
     }
 
     private void ShapeesDoneMoving()

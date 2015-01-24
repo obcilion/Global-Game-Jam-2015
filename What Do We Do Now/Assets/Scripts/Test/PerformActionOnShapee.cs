@@ -9,7 +9,7 @@ public class PerformActionOnShapee : MonoBehaviour
 
     public void PerformNextAction()
     {
-        _myLittleShapee.PerformNextAction(CallbackTest);
+        //_myLittleShapee.PerformNextAction(CallbackTest);
     }
 
     private void CallbackTest()

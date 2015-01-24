@@ -4,7 +4,7 @@ using System;
 
 public class ShapeeHerder
 {
-    public List<ShapeeBase> ShapeesInScene { get; private set; } // Contains all shapees in scene
+    public List<GameObject> ShapeesInScene { get; private set; } // Contains all shapees in scene
     public List<ShapeeBase> MovingShapees { get; private set; } // Moving Shapees with more actions left
     public List<ShapeeBase> IdleShapees { get; private set; } // Shapees who have no more actions
 
@@ -16,7 +16,7 @@ public class ShapeeHerder
     /// <returns>success of initialization</returns>
     public bool Initialize()
     {
-        ShapeesInScene = new List<ShapeeBase>();
+        ShapeesInScene = new List<GameObject>();
         MovingShapees = new List<ShapeeBase>();
         IdleShapees = new List<ShapeeBase>();
 
@@ -29,7 +29,7 @@ public class ShapeeHerder
         _allActionsDoneCallback = allActionsDoneCallback;
         foreach (var shapee in ShapeesInScene)
         {
-            MovingShapees.Add(shapee);
+            MovingShapees.Add(shapee.GetComponent<ShapeeBase>());
         }
         StartActions();
     }
