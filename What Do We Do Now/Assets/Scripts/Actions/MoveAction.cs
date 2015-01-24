@@ -19,7 +19,7 @@ public class MoveAction : IAction
         //  tween position
         targetShapee.transform.TweenPosition()
             .SetEndValue(new Vector3(
-                targetShapee.transform.position.x + _moveDistance,
+                (targetShapee.transform.position.x * targetShapee.GetComponent<ShapeeBase>().Direction) + _moveDistance,
                 targetShapee.transform.position.y,
                 targetShapee.transform.position.z))
             .SetDuration(_tweenDuration)

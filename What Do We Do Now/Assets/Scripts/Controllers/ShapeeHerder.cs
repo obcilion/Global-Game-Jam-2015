@@ -31,7 +31,14 @@ public class ShapeeHerder
         {
             MovingShapees.Add(shapee);
         }
+
         StartActions();
+    }
+
+    public void SpawnShapee(GameObject prefab, Vector3 position)
+    {
+       var shapee = (GameObject)GameObject.Instantiate(prefab, position, prefab.transform.rotation);
+       ShapeesInScene.Add(shapee.GetComponent<ShapeeBase>());
     }
 
     public void StartActions()
@@ -43,9 +50,9 @@ public class ShapeeHerder
     }
 
     /// <summary>
-    /// Called when a shapee finishes its action. Calls next action on shapee if <c>ActionQueue</c> is not empty
+    /// Called when a prefab finishes its action. Calls next action on prefab if <c>ActionQueue</c> is not empty
     /// </summary>
-    /// <param name="shapee">The shapee calling</param>
+    /// <param name="shapee">The prefab calling</param>
     public void ActionComplete(ShapeeBase shapee)
     {
         if (shapee.ActionQueue.Count > 0)
