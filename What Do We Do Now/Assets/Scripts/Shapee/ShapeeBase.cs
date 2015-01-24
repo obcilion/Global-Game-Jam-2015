@@ -4,7 +4,7 @@ using System;
 
 public class ShapeeBase : MonoBehaviour
 {
-    public Queue<IAction> ActionQueue { get; set; }
+    public Queue<IAction> ActionQueue { get; private set; }
     public bool IsDead { get; private set; }
     public event Action<ShapeeBase> OutOfActions;
 
@@ -26,6 +26,7 @@ public class ShapeeBase : MonoBehaviour
 
     public void Reset()
     {
+        Debug.Log("Resetting Shapee");
         ActionQueue = new Queue<IAction>();
         IsDead = false;
         Direction = 1;
@@ -38,6 +39,7 @@ public class ShapeeBase : MonoBehaviour
         if (ActionQueue.Count > 0)
         {
             ActionQueue.Dequeue().Perform(ActionComplete);
+            Debug.Log("Performinc action, " + ActionQueue.Count + " actions left");
         }
         else if (OutOfActions != null)
         {

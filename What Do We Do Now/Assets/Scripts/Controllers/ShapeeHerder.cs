@@ -29,7 +29,7 @@ public class ShapeeHerder
     }
 
     private Action _allActionsDoneCallback;
-    private int _shapeesMoving;
+    private int _shapeesActing;
 
     public ShapeeHerder()
     {
@@ -40,7 +40,7 @@ public class ShapeeHerder
     {
         ShapeesWithActionsLeft = new List<ShapeeBase>();
         ShapeesWithoutActionsLeft = new List<ShapeeBase>();
-        _shapeesMoving = 0;
+        _shapeesActing = 0;
         CurrentSelectedShapee = null;
         _allActionsDoneCallback = null;
         Debug.Log("ShapeeHerder reset");
@@ -58,7 +58,7 @@ public class ShapeeHerder
     public void PerformActions(Action allActionsDone)
     {
         _allActionsDoneCallback = allActionsDone;
-        _shapeesMoving = ShapeesInScene.Count;
+        _shapeesActing = ShapeesInScene.Count;
         foreach (var shapee in ShapeesInScene)
         {
             ShapeesWithActionsLeft.Add(shapee);
@@ -68,7 +68,8 @@ public class ShapeeHerder
 
     public void PerformActions()
     {
-        _shapeesMoving = ShapeesWithActionsLeft.Count;
+        _shapeesActing = ShapeesWithActionsLeft.Count;
+        Debug.Log("Shapees acting: " + _shapeesActing);
         foreach (var shapee in ShapeesWithActionsLeft)
         {
             shapee.PerformNextAction(ActionDone);
@@ -77,20 +78,27 @@ public class ShapeeHerder
 
     public void ActionDone(ShapeeBase shapee)
     {
-        _shapeesMoving--;
-        if (_shapeesMoving <= 0)
+        _shapeesActing--;
+        Debug.Log("Action done, " + _shapeesActing + " shapees left to complete action");
+        if (_shapeesActing <= 0)
         {
             Debug.Log("All shapees done with current action");
-            foreach (var s in ShapeesWithoutActionsLeft)
+            if (ShapeesWithoutActionsLeft.Count > 0)
             {
-                ShapeesWithActionsLeft.Remove(s);
+                Debug.Log("Removing " + ShapeesWithoutActionsLeft.Count + " shapees from active list");
+                foreach (var s in ShapeesWithoutActionsLeft)
+                {
+                    ShapeesWithActionsLeft.Remove(s);
+                }
             }
+            ShapeesWithoutActionsLeft.Clear();
             PerformActions();
         }
     }
 
     public void NoActionsLeft(ShapeeBase shapee)
     {
+        Debug.Log("Shapee out of actions");
         ShapeesWithoutActionsLeft.Add(shapee);
     }
 

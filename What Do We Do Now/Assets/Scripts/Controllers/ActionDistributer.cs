@@ -20,7 +20,7 @@ public class ActionDistributer : MonoBehaviour
         //todo: Make a variable in ShapeeBase that defines the action-capacity of a shapee to check against.
         if (currentShapee.ActionQueue.Count >= 3)
         {
-            return;
+            //return;
         }
 
         //  Add the action requested
