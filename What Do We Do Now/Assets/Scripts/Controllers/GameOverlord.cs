@@ -11,6 +11,7 @@ public class GameOverlord : MonoBehaviour
     }
 
     private ShapeeHerder _shapeeHerder;
+    private ActionDistributer _actionDistributer;
     [SerializeField] private List<GameObject> _shapees;
 
     public GameState CurrentGameState { get; private set; }
@@ -41,6 +42,9 @@ public class GameOverlord : MonoBehaviour
     {
         _shapeeHerder = new ShapeeHerder();
         _shapeeHerder.Initialize();
+
+        _actionDistributer = gameObject.AddComponent<ActionDistributer>();
+        _actionDistributer.Herder = _shapeeHerder;
     }
 
     // Update is called once per frame

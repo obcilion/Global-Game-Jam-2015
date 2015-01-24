@@ -2,11 +2,31 @@
 using System.Collections.Generic;
 using System;
 
+
 public class ShapeeHerder
 {
+    private ShapeeBase _currentSelectedShapee;
+
     public List<ShapeeBase> ShapeesInScene { get; private set; } // Contains all shapees in scene
     public List<ShapeeBase> MovingShapees { get; private set; } // Moving Shapees with more actions left
     public List<ShapeeBase> IdleShapees { get; private set; } // Shapees who have no more actions
+
+    public ShapeeBase CurrentSelectedShapee
+    {
+        get
+        {
+            return _currentSelectedShapee;
+        }
+        set
+        {
+            if (value == _currentSelectedShapee)
+            {
+                return;
+            }
+
+            _currentSelectedShapee = value;
+        }
+    }
 
     private Action _allActionsDoneCallback;
 
