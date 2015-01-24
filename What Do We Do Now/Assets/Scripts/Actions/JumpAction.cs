@@ -35,7 +35,7 @@ public class JumpAction : MonoBehaviour, IAction
             _jump = false;
         }
 
-        if (_isMoving && rigidbody2D.velocity.magnitude < 0.5)
+        if (_isMoving && rigidbody2D.velocity.sqrMagnitude <= 0.1f)
         {
             Debug.Log("Done jumping");
             _isMoving = false;
