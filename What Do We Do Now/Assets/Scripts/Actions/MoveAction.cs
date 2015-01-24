@@ -36,7 +36,7 @@ public class MoveAction : MonoBehaviour, IAction
 
     private void Awake()
     {
-        Distance = 50;
+        Distance = 77;
         Speed = 5;
         Acceleration = 1;
         Reset();
@@ -61,7 +61,7 @@ public class MoveAction : MonoBehaviour, IAction
                 }
                 rigidbody2D.AddForce(_velocity, ForceMode2D.Force);
             }
-            else
+            else if (rigidbody2D.velocity.sqrMagnitude <= 0.01f)
             {
                 Debug.Log("Done moving");
                 if (_callback != null) _callback();

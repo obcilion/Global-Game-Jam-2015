@@ -16,15 +16,15 @@ public class JumpAction : MonoBehaviour, IAction
         _callback = callback;
         Debug.Log("Performing Jump Action");
         _direction = gameObject.GetComponent<ShapeeBase>().Direction;
-        Vector2 jumpVector = new Vector2(_distance * _direction, _height);
+        var jumpVector = new Vector2(_distance * _direction, _height);
         rigidbody2D.AddForce(jumpVector, ForceMode2D.Impulse);
         _isMoving = true;
     }
 
     private void Awake()
     {
-        _height = 5;
-        _distance = 5;
+        _height = 7.5f;
+        _distance = 2f;
     }
 
     private void Update()
