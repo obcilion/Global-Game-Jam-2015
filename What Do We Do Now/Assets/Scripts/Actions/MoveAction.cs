@@ -3,12 +3,14 @@ using System;
 
 public class MoveAction : MonoBehaviour, IAction
 {
-    [SerializeField] public float Distance = 5;
-    [SerializeField] public float Speed = 10f;
-    [SerializeField] public float Acceleration = 1f;
+    [SerializeField] public float Distance;
+    [SerializeField] public float Speed;
+    [SerializeField] public float Acceleration;
+    [SerializeField]
+    private bool _move; //used to trigger this behaviour in the editor
 
     private Action _callback;
-    [SerializeField] private bool _isMoving;
+    private bool _isMoving;
     private int _direction = 1;
     private float _timeToTravel = 0;
     private float _timeTraveled = 0;
@@ -40,6 +42,12 @@ public class MoveAction : MonoBehaviour, IAction
 
     private void FixedUpdate()
     {
+        if (_move)
+        {
+            Perform(null);
+            _move = false;
+        }
+
         if (_isMoving)
         {
             if (_timeTraveled < _timeToTravel)
