@@ -6,7 +6,7 @@ public class ShapeeBase : MonoBehaviour
 {
     public Queue<IAction> ActionQueue { get; set; }
     public bool IsDead { get; private set; }
-    public int Direction { get; set; } // 1 for right, -1 for left
+    public int Direction; // 1 for right, -1 for left
 
     private Action<ShapeeBase> _actionCompleteCallback;
 
