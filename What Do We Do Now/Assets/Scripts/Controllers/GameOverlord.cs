@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(ActionDistributer))]
 public class GameOverlord : MonoBehaviour
 {
     public enum GameState
@@ -43,7 +44,7 @@ public class GameOverlord : MonoBehaviour
         _shapeeHerder = new ShapeeHerder();
         _shapeeHerder.Initialize();
 
-        _actionDistributer = gameObject.AddComponent<ActionDistributer>();
+        _actionDistributer = gameObject.GetComponent<ActionDistributer>();
         _actionDistributer.Herder = _shapeeHerder;
     }
 

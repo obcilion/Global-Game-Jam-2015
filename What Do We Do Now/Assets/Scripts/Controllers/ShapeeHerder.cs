@@ -57,8 +57,10 @@ public class ShapeeHerder
 
     public void SpawnShapee(GameObject prefab, Vector3 position)
     {
-       var shapee = (GameObject)GameObject.Instantiate(prefab, position, prefab.transform.rotation);
-       ShapeesInScene.Add(shapee.GetComponent<ShapeeBase>());
+        var shapee = (GameObject)GameObject.Instantiate(prefab, position, prefab.transform.rotation);
+        var shapeeScript = shapee.GetComponent<ShapeeBase>();
+        ShapeesInScene.Add(shapeeScript);
+        CurrentSelectedShapee = shapeeScript;
     }
 
     public void StartActions()
