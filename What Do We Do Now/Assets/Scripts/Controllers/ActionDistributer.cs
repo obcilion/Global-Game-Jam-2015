@@ -35,22 +35,25 @@ public class ActionDistributer : MonoBehaviour {
 #if DEBUG
                 Debug.Log("Adding MOVE action to " + currentShapee.name);
 #endif
-                currentShapee.ActionQueue.Enqueue(new MoveAction());
+                currentShapee.ActionQueue.Enqueue(currentShapee.gameObject.AddComponent<MoveAction>());
                 break;
             case ActionType.Jump:
 #if DEBUG
                 Debug.Log("Adding JUMP action to " + currentShapee.name);
 #endif
+                currentShapee.ActionQueue.Enqueue(currentShapee.gameObject.AddComponent<JumpAction>());
                 break;
             case ActionType.Turn:
 #if DEBUG
                 Debug.Log("Adding TURN action to " + currentShapee.name);
 #endif
+                currentShapee.ActionQueue.Enqueue(currentShapee.gameObject.AddComponent<TurnAction>());
                 break;
             case ActionType.Wait:
 #if DEBUG
                 Debug.Log("Adding WAIT action to " + currentShapee.name);
 #endif
+                currentShapee.ActionQueue.Enqueue(currentShapee.gameObject.AddComponent<WaitAction>());
                 break;
         }
     }
