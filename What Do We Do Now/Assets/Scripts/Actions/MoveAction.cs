@@ -1,31 +1,18 @@
 ﻿using UnityEngine;
-using DaikonForge.Tween;
 using System;
 
-public class MoveAction : IAction
+public class MoveAction : MonoBehaviour, IAction
 {
-    private float _tweenDuration = .5f;
-    private float _moveDistance = 5f;
-
-    private TweenEasingCallback _easing = TweenEasingFunctions.GetFunction(EasingType.QuadEaseInOut);
-
+    private Action _callback;
     public void Perform(Action callback, GameObject targetShapee)
     {
-
+        _callback = callback;
         Debug.Log("Performing Move Action");
-        //move shit
 
-        // todo:
-        //  tween position
-        targetShapee.transform.TweenPosition()
-            .SetEndValue(new Vector3(
-                (targetShapee.transform.position.x * targetShapee.GetComponent<ShapeeBase>().Direction) + _moveDistance,
-                targetShapee.transform.position.y,
-                targetShapee.transform.position.z))
-            .SetDuration(_tweenDuration)
-            .SetEasing(_easing)
-            .OnStopped(sender => callback())
-            .Play();
+    }
 
+    private void FixedUpdate()
+    {
+        
     }
 }
