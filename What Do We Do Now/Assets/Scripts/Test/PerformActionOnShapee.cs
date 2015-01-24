@@ -12,10 +12,10 @@ public class PerformActionOnShapee : MonoBehaviour
         _myLittleShapee.PerformNextAction(CallbackTest);
     }
 
-    private void CallbackTest()
+    private void CallbackTest(ShapeeBase sender)
     {
 #if DEBUG
-        Debug.Log("Callback from " + _myLittleShapee.name);
+        Debug.Log("Callback from " + sender.name);
 #endif
     }
 

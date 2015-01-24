@@ -181,6 +181,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 441346}
+  - 114: {fileID: 11469858}
+  - 114: {fileID: 11469854}
+  - 114: {fileID: 11469856}
+  - 50: {fileID: 5069858}
+  - 60: {fileID: 6069858}
   m_Layer: 0
   m_Name: Shapee_Triangle
   m_TagString: Untagged
@@ -343,6 +348,70 @@ Transform:
   - {fileID: 441344}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5069858
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141346}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+--- !u!60 &6069858
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141346}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Poly:
+    m_Paths:
+    - - {x: .0263873115, y: .907644451}
+      - {x: .973046005, y: -.904798746}
+      - {x: .614172459, y: -1.09487939}
+      - {x: -.64495784, y: -1.09487939}
+      - {x: -.973045945, y: -.904798567}
+--- !u!114 &11469854
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2afb2b817465c40498794cd3de84254d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11469856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c575b506847bca84ea3df65b8f488940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11469858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25b7e905a6f65b49985827f70ed9d2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21241324
 SpriteRenderer:
   m_ObjectHideFlags: 1
