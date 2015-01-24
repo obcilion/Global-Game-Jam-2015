@@ -181,19 +181,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 441346}
-<<<<<<< HEAD
-  - 114: {fileID: 11469858}
-  - 114: {fileID: 11469854}
-  - 114: {fileID: 11469856}
-  - 50: {fileID: 5069858}
-  - 60: {fileID: 6069858}
-=======
   - 114: {fileID: 11411192}
   - 114: {fileID: 11411196}
   - 114: {fileID: 11411194}
   - 50: {fileID: 5011192}
   - 60: {fileID: 6011192}
->>>>>>> origin/master
   m_Layer: 0
   m_Name: Shapee_Triangle_Test
   m_TagString: Untagged
@@ -356,11 +348,7 @@ Transform:
   - {fileID: 441344}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-<<<<<<< HEAD
---- !u!50 &5069858
-=======
 --- !u!50 &5011192
->>>>>>> origin/master
 Rigidbody2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -375,11 +363,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-<<<<<<< HEAD
---- !u!60 &6069858
-=======
 --- !u!60 &6011192
->>>>>>> origin/master
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -395,11 +379,7 @@ PolygonCollider2D:
       - {x: .614172459, y: -1.09487939}
       - {x: -.64495784, y: -1.09487939}
       - {x: -.973045945, y: -.904798567}
-<<<<<<< HEAD
---- !u!114 &11469854
-=======
 --- !u!114 &11411192
->>>>>>> origin/master
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -407,17 +387,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 141346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
-  m_Script: {fileID: 11500000, guid: 2afb2b817465c40498794cd3de84254d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11469856
-=======
   m_Script: {fileID: 11500000, guid: e25b7e905a6f65b49985827f70ed9d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11411194
->>>>>>> origin/master
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -428,11 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c575b506847bca84ea3df65b8f488940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
---- !u!114 &11469858
-=======
 --- !u!114 &11411196
->>>>>>> origin/master
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -440,11 +409,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 141346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
-  m_Script: {fileID: 11500000, guid: e25b7e905a6f65b49985827f70ed9d2d, type: 3}
-=======
   m_Script: {fileID: 11500000, guid: 2afb2b817465c40498794cd3de84254d, type: 3}
->>>>>>> origin/master
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21241324

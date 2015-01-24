@@ -25,7 +25,7 @@ public class ConstructShapeeAndDestroy : MonoBehaviour
         switch (actionNum)
         {
             case 0:
-                shapeeScript.ActionQueue.Enqueue(shapee.AddComponent<MoveAction>());
+                shapeeScript.ActionQueue.Enqueue(new MoveAction());
                 break;
             default:
 #if DEBUG
@@ -61,7 +61,7 @@ public class ConstructShapeeAndDestroy : MonoBehaviour
 
     private void Awake()
     {
-        _trianglePrefab = Resources.Load<GameObject>("Prefabs/Shapee_Triangle");
+        _trianglePrefab = Resources.Load<GameObject>("Prefabs/Shapee_Triangle_Test");
         ActiveShapees = new List<ShapeeBase>();
     }
 
