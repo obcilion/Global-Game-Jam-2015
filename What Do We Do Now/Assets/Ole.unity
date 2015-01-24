@@ -747,7 +747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shapees:
-  - {fileID: 141346, guid: d21546f73d0740a468702f70b960492a, type: 2}
+  - {fileID: 141346, guid: 13cb16de2e193284d82d20b6fd549cb9, type: 2}
 --- !u!4 &624111434
 Transform:
   m_ObjectHideFlags: 0

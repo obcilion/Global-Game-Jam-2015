@@ -3,9 +3,9 @@ using System;
 
 public class MoveAction : MonoBehaviour, IAction
 {
-    [SerializeField] public float Distance;
-    [SerializeField] public float Speed;
-    [SerializeField] public float Acceleration;
+    public float Distance;
+    public float Speed;
+    public float Acceleration;
     [SerializeField]
     private bool _move; //used to trigger this behaviour in the editor
 
@@ -21,9 +21,8 @@ public class MoveAction : MonoBehaviour, IAction
         Reset();
         _callback = callback;
         _direction = gameObject.GetComponent<ShapeeBase>().Direction;
-        _isMoving = true;
         Debug.Log("Performing Move Action");
-
+        _isMoving = true;
     }
 
     public void Reset()
@@ -37,9 +36,9 @@ public class MoveAction : MonoBehaviour, IAction
 
     private void Awake()
     {
-        Distance = 50f;
-        Speed = 5f;
-        Acceleration = 1f;
+        Distance = 50;
+        Speed = 5;
+        Acceleration = 1;
         Reset();
     }
 
@@ -65,8 +64,8 @@ public class MoveAction : MonoBehaviour, IAction
             else
             {
                 Debug.Log("Done moving");
-                Reset();
                 if (_callback != null) _callback();
+                Reset();
             }
         }
     }

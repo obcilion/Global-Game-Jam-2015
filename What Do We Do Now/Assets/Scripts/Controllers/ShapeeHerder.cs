@@ -8,8 +8,8 @@ public class ShapeeHerder
     private ShapeeBase _currentSelectedShapee;
 
     public List<ShapeeBase> ShapeesInScene { get; private set; } // Contains all shapees in scene
-    public List<ShapeeBase> MovingShapees { get; private set; } // Moving Shapees with more actions left
-    public List<ShapeeBase> IdleShapees { get; private set; } // Shapees who have no more actions
+    public List<ShapeeBase> ShapeesWithActionsLeft { get; private set; }
+    public List<ShapeeBase> ShapeesWithoutActionsLeft { get; private set; }
 
     public ShapeeBase CurrentSelectedShapee
     {
@@ -29,30 +29,21 @@ public class ShapeeHerder
     }
 
     private Action _allActionsDoneCallback;
+    private int _shapeesMoving;
 
-    /// <summary>
-    /// Initializes class
-    /// </summary>
-    /// <returns>success of initialization</returns>
-    public bool Initialize()
+    public ShapeeHerder()
     {
         ShapeesInScene = new List<ShapeeBase>();
-        MovingShapees = new List<ShapeeBase>();
-        IdleShapees = new List<ShapeeBase>();
-
-        Debug.Log("ShapeeHerder initialized");
-        return true;
     }
 
-    public void PerformAllActions(Action allActionsDoneCallback)
+    public void Reset()
     {
-        _allActionsDoneCallback = allActionsDoneCallback;
-        foreach (var shapee in ShapeesInScene)
-        {
-            MovingShapees.Add(shapee);
-        }
-
-        StartActions();
+        ShapeesWithActionsLeft = new List<ShapeeBase>();
+        ShapeesWithoutActionsLeft = new List<ShapeeBase>();
+        _shapeesMoving = 0;
+        CurrentSelectedShapee = null;
+        _allActionsDoneCallback = null;
+        Debug.Log("ShapeeHerder reset");
     }
 
     public void SpawnShapee(GameObject prefab, Vector3 position)
@@ -60,37 +51,47 @@ public class ShapeeHerder
         var shapee = (GameObject)GameObject.Instantiate(prefab, position, prefab.transform.rotation);
         var shapeeScript = shapee.GetComponent<ShapeeBase>();
         ShapeesInScene.Add(shapeeScript);
+        shapeeScript.OutOfActions += NoActionsLeft;
         CurrentSelectedShapee = shapeeScript;
     }
 
-    public void StartActions()
+    public void PerformActions(Action allActionsDone)
     {
-        foreach (var shapee in MovingShapees)
+        _allActionsDoneCallback = allActionsDone;
+        foreach (var shapee in ShapeesInScene)
         {
-            shapee.PerformNextAction(ActionComplete);
+            ShapeesWithActionsLeft.Add(shapee);
+            shapee.PerformNextAction(ActionDone);
+            _shapeesMoving++;
         }
     }
 
-    /// <summary>
-    /// Called when a prefab finishes its action. Calls next action on prefab if <c>ActionQueue</c> is not empty
-    /// </summary>
-    /// <param name="shapee">The prefab calling</param>
-    public void ActionComplete(ShapeeBase shapee)
+    public void PerformActions()
     {
-        if (shapee.ActionQueue.Count > 0)
+        foreach (var shapee in ShapeesWithActionsLeft)
         {
-            shapee.PerformNextAction(ActionComplete);
-        }
-        else
-        {
-            IdleShapees.Add(shapee);
-
-            if (IdleShapees.Count != MovingShapees.Count) return;
-
-            Debug.Log("All shapees done moving");
-            IdleShapees.Clear();
-            MovingShapees.Clear();
-            _allActionsDoneCallback();
+            shapee.PerformNextAction(ActionDone);
         }
     }
+
+    public void ActionDone(ShapeeBase shapee)
+    {
+        _shapeesMoving--;
+        if (_shapeesMoving <= 0)
+        {
+            Debug.Log("All shapees done with current action");
+            foreach (var s in ShapeesWithoutActionsLeft)
+            {
+                ShapeesWithActionsLeft.Remove(s);
+            }
+            PerformActions();
+        }
+    }
+
+    public void NoActionsLeft(ShapeeBase shapee)
+    {
+        ShapeesWithoutActionsLeft.Add(shapee);
+    }
+
+
 }

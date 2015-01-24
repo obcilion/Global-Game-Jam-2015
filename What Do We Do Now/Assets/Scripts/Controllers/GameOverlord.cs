@@ -32,11 +32,12 @@ public class GameOverlord : MonoBehaviour
             return;
         }
         CurrentGameState = GameState.Execution;
-        _shapeeHerder.PerformAllActions(ShapeesDoneMoving);
+        _shapeeHerder.PerformActions(ShapeesDoneMoving);
     }
 
     private void ShapeesDoneMoving()
     {
+        Debug.Log("Shapee actions done, changing state to planning");
         CurrentGameState = GameState.Planning;
     }
 
@@ -47,7 +48,7 @@ public class GameOverlord : MonoBehaviour
 		AudioManager.LoadFabric();
 
         _shapeeHerder = new ShapeeHerder();
-        _shapeeHerder.Initialize();
+        _shapeeHerder.Reset();
 
         _actionDistributer = gameObject.GetComponent<ActionDistributer>();
         _actionDistributer.Herder = _shapeeHerder;

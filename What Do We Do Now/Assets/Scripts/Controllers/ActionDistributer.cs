@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-
 public enum ActionType
 {
     Move,
@@ -9,15 +8,12 @@ public enum ActionType
     Wait
 }
 
-public class ActionDistributer : MonoBehaviour {
-
-
+public class ActionDistributer : MonoBehaviour 
+{
     public ShapeeHerder Herder { get; set; }
-
 
     public void GiveAction(ActionType action)
     {
-
         //  Check that the shapee is not filled up on actions already
         var currentShapee = Herder.CurrentSelectedShapee;
 
@@ -26,7 +22,6 @@ public class ActionDistributer : MonoBehaviour {
         {
             return;
         }
-
 
         //  Add the action requested
         switch (action)
