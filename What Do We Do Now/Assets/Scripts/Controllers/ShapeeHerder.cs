@@ -58,16 +58,17 @@ public class ShapeeHerder
     public void PerformActions(Action allActionsDone)
     {
         _allActionsDoneCallback = allActionsDone;
+        _shapeesMoving = ShapeesInScene.Count;
         foreach (var shapee in ShapeesInScene)
         {
             ShapeesWithActionsLeft.Add(shapee);
             shapee.PerformNextAction(ActionDone);
-            _shapeesMoving++;
         }
     }
 
     public void PerformActions()
     {
+        _shapeesMoving = ShapeesWithActionsLeft.Count;
         foreach (var shapee in ShapeesWithActionsLeft)
         {
             shapee.PerformNextAction(ActionDone);
