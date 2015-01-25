@@ -124,7 +124,7 @@ public class ShapeeBase : MonoBehaviour
         _actionCompleteCallback(this);
     }
 
-    private void SetFace(int faceIndex)
+    public void SetFace(int faceIndex)
     {
         FaceFocused.SetActive(false);
         FaceHappy.SetActive(false);

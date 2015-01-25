@@ -47,6 +47,10 @@ TagManager:
     userID: 0
     uniqueID: 0
     locked: 0
+  - name: Door
+    userID: 3
+    uniqueID: 1299355257
+    locked: 0
   - name: Shapee
     userID: 1
     uniqueID: 924704307
