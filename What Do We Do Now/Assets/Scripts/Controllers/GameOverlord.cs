@@ -13,6 +13,7 @@ public class GameOverlord : MonoBehaviour
         Execution
     }
 
+    public Transform SpawnPoint;
     private ShapeeHerder _shapeeHerder;
     private ActionDistributer _actionDistributer;
     [SerializeField] private List<GameObject> _shapees;
@@ -21,7 +22,7 @@ public class GameOverlord : MonoBehaviour
 
     public void SpawnShapee()
     {
-        _shapeeHerder.SpawnShapee(_shapees[0],new Vector3(-4,2,0));
+        _shapeeHerder.SpawnShapee(_shapees[0], SpawnPoint.position);
     }
 
     public void PerformActions()
@@ -52,6 +53,8 @@ public class GameOverlord : MonoBehaviour
 
         _actionDistributer = gameObject.GetComponent<ActionDistributer>();
         _actionDistributer.Herder = _shapeeHerder;
+
+        SpawnPoint = GameObject.FindWithTag("Spawn").transform;
     }
 
     // Update is called once per frame
