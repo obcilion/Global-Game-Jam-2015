@@ -104,6 +104,8 @@ public class ShapeeBase : MonoBehaviour
                 break;
             case 11:        // exit
                 Debug.Log("SUCCESS!");
+				// play a Win-Level sound
+                AudioManager.PlaySound("FX/Character/Win-Level", gameObject);
                 var canvas = Instantiate(_winCanvas) as GameObject;
                 var text = canvas.GetComponentInChildren<Text>();
                 text.TweenScaleTo(new Vector3(4, 4)).SetDuration(.75f).SetEasing(_easingFunc).Play();
