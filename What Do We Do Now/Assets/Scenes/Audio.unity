@@ -371,6 +371,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventList:
   - _UnSet_
+  - FX/Character/Jump
+  - FX/Character/Move
+  - FX/Character/Turn
+  - FX/Character/Wait
   profiler:
     totalMS: 0
     recordedMS: 0
