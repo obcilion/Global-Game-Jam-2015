@@ -12,7 +12,7 @@ GameObject:
   - 23: {fileID: 2303992}
   - 114: {fileID: 11403992}
   - 61: {fileID: 6103992}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpikesMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.22000003, y: 2.66000009, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -7.05883598, y: 1.21886241, z: 0}
+  m_LocalScale: {x: 12.9028263, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

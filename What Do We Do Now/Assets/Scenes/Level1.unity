@@ -1913,7 +1913,7 @@ GameObject:
   - 23: {fileID: 883877994}
   - 114: {fileID: 883877993}
   - 61: {fileID: 883877992}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpikesMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3178,7 +3178,7 @@ GameObject:
   - 23: {fileID: 1665564035}
   - 114: {fileID: 1665564034}
   - 61: {fileID: 1665564033}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpikesRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4086,7 +4086,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 3029696223
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fd70d1cd38a45ae48a5421473f2b8faf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 069a4666ddf0686428c2ccdb25496012, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1945356407
 Transform:
@@ -4451,7 +4451,7 @@ GameObject:
   - 23: {fileID: 2133504351}
   - 114: {fileID: 2133504350}
   - 61: {fileID: 2133504349}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpikesLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
