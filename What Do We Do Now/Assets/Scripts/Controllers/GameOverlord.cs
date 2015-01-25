@@ -45,9 +45,6 @@ public class GameOverlord : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-		// Load the Fabric manager by loading up the Audio scene!
-		AudioManager.LoadFabric();
-
         _shapeeHerder = new ShapeeHerder();
         _shapeeHerder.Reset();
 
