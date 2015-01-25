@@ -45,8 +45,6 @@ public class GameOverlord : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        DontDestroyOnLoad(this);
-
 		// Load the Fabric manager by loading up the Audio scene!
 		AudioManager.LoadFabric();
 
@@ -55,8 +53,17 @@ public class GameOverlord : MonoBehaviour
 
         _actionDistributer = gameObject.GetComponent<ActionDistributer>();
         _actionDistributer.Herder = _shapeeHerder;
+    }
 
-        SpawnPoint = GameObject.FindWithTag("Spawn").transform;
+    private void OnLevelWasLoaded(int level)
+    {
+        var log = "Loaded level " + level;
+        if (level > 0 && !Application.loadedLevelName.Equals("Audio"))
+        {
+            log += ", looking for spawn";
+            SpawnPoint = GameObject.FindWithTag("Spawn").transform;
+        }
+        Debug.Log(log);
     }
 
     // Update is called once per frame
