@@ -5,7 +5,24 @@ using System;
 public class ShapeeBase : MonoBehaviour
 {
     public Queue<IAction> ActionQueue { get; private set; }
-    public bool IsDead { get; private set; }
+
+    private bool _isDead;
+    public bool IsDead
+    {
+        get { return _isDead; }
+        private set
+        {
+            _isDead = value;
+            if (!IsDead) return;
+            ActionQueue.Clear();
+            if (OutOfActions != null)
+            {
+                OutOfActions(this);
+            }
+        }
+    }
+
+
     public event Action<ShapeeBase> OutOfActions;
 
     private int _direction;
@@ -50,18 +67,6 @@ public class ShapeeBase : MonoBehaviour
     private void Awake()
     {
         Reset();
-    }
-
-    private void Update()
-    {
-        if (IsDead)
-        {
-            ActionQueue.Clear();
-            if (OutOfActions != null)
-            {
-                OutOfActions(this);
-            }
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

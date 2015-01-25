@@ -62,8 +62,14 @@ public class GameOverlord : MonoBehaviour
         {
             log += ", looking for spawn";
             SpawnPoint = GameObject.FindWithTag("Spawn").transform;
+            SpawnShapee();
         }
         Debug.Log(log);
+    }
+
+    public void ReloadLevel()
+    {
+        Application.LoadLevel(Application.loadedLevel);
     }
 
     // Update is called once per frame
