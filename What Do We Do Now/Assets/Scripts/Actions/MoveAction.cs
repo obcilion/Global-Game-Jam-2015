@@ -23,6 +23,7 @@ public class MoveAction : MonoBehaviour, IAction
 		// play a sound
 		Debug.Log("Play a move sound");
         AudioManager.PlaySound("FX/Character/Move",gameObject);
+        AudioManager.PlaySound("FX/Action/Move-Slide",gameObject);
 
         _callback = callback;
         _direction = gameObject.GetComponent<ShapeeBase>().Direction;
