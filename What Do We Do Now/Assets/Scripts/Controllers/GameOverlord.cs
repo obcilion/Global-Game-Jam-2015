@@ -78,7 +78,7 @@ public class GameOverlord : MonoBehaviour
 		if (!mainMusicPlaying) {
 			if (AudioManager.FabricLoaded) {
 				mainMusicPlaying = true;
-//				AudioManager.PlaySound("MX/Music_Loop");
+				AudioManager.PlaySound("MX/Main_Loop");
 				Debug.Log("play the music!");
 			}
 		}
