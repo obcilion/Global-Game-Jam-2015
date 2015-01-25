@@ -4,6 +4,11 @@ using System;
 
 public class ShapeeBase : MonoBehaviour
 {
+    public GameObject Body;
+    public GameObject FaceFocused;
+    public GameObject FaceHappy;
+    public GameObject FaceDead;
+
     public Queue<IAction> ActionQueue { get; private set; }
     public bool IsDead { get; private set; }
     public event Action<ShapeeBase> OutOfActions;
@@ -30,6 +35,8 @@ public class ShapeeBase : MonoBehaviour
         ActionQueue = new Queue<IAction>();
         IsDead = false;
         Direction = 1;
+
+        SetFace(0);
     }
 
     public void PerformNextAction(Action<ShapeeBase> callback)
@@ -71,10 +78,12 @@ public class ShapeeBase : MonoBehaviour
             case 10:        // obstacles
             	// play a sound for death
             	AudioManager.PlaySound("FX/Character/Death", gameObject);
+                SetFace(1);
                 IsDead = true;
                 break;
             case 11:        // exit
                 Debug.Log("SUCCESS!");
+                SetFace(2);
                 break;
         }
     }
@@ -82,5 +91,25 @@ public class ShapeeBase : MonoBehaviour
     private void ActionComplete()
     {
         _actionCompleteCallback(this);
+    }
+
+    private void SetFace(int faceIndex)
+    {
+        FaceFocused.SetActive(false);
+        FaceHappy.SetActive(false);
+        FaceDead.SetActive(false);
+
+        switch (faceIndex)
+        {
+            case 0:
+                FaceFocused.SetActive(true);
+                break;
+            case 1:
+                FaceDead.SetActive(true);
+                break;
+            case 2:
+                FaceHappy.SetActive(true);
+                break;
+        }
     }
 }
