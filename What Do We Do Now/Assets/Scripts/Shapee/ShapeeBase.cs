@@ -1,6 +1,10 @@
-﻿using UnityEngine;
+﻿using DaikonForge.Tween;
+
+using UnityEngine;
 using System.Collections.Generic;
 using System;
+
+using UnityEngine.UI;
 
 public class ShapeeBase : MonoBehaviour
 {
@@ -10,6 +14,12 @@ public class ShapeeBase : MonoBehaviour
     public GameObject FaceDead;
 
     public Queue<IAction> ActionQueue { get; private set; }
+
+    private GameObject _winCanvas;
+
+    private EasingType _textEase = EasingType.Bounce;
+
+    private TweenEasingCallback _easingFunc;
 
     private bool _isDead;
     public bool IsDead
@@ -74,6 +84,9 @@ public class ShapeeBase : MonoBehaviour
     private void Awake()
     {
         Reset();
+
+        _winCanvas = Resources.Load<GameObject>("Prefabs/UI/WinCanvas");
+        _easingFunc = TweenEasingFunctions.GetFunction(_textEase);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -91,6 +104,10 @@ public class ShapeeBase : MonoBehaviour
                 break;
             case 11:        // exit
                 Debug.Log("SUCCESS!");
+                var canvas = Instantiate(_winCanvas) as GameObject;
+                var text = canvas.GetComponentInChildren<Text>();
+                text.TweenScaleTo(new Vector3(4, 4)).SetDuration(.75f).SetEasing(_easingFunc).Play();
+
                 SetFace(2);
                 break;
         }
