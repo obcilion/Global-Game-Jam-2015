@@ -323,11 +323,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 353119068}
-  - 114: {fileID: 353119067}
-  - 114: {fileID: 353119066}
   - 114: {fileID: 353119065}
   m_Layer: 0
-  m_Name: Castle
+  m_Name: LevelChanger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,30 +340,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a5df1ef9b35b114f90b8e71a54fbdf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &353119066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 353119064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71e2615bad08f99438a269190208ddd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shapees:
-  - {fileID: 141346, guid: 13cb16de2e193284d82d20b6fd549cb9, type: 2}
---- !u!114 &353119067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 353119064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4bc85ef571d5c94bba31a1e69d77d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &353119068
