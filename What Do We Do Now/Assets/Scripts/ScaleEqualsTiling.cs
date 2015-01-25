@@ -12,12 +12,12 @@ namespace Trollpants // todo Add project key, like "HE" or "WW"
     using UnityEngine;
     using UnityEngine.UI;
 
-
+    [ExecuteInEditMode]
     public class ScaleEqualsTiling : MonoBehaviour
     {
         #region Fields & properties
 
-        private Material _material;
+        [SerializeField] private bool _updateTiling;
 
         #endregion /Fields & properties
 
@@ -31,25 +31,14 @@ namespace Trollpants // todo Add project key, like "HE" or "WW"
         // Remove methods if empty
         // Execution order: http://docs.unity3d.com/Manual/ExecutionOrder.html
 
-        private void Awake()
+        private void Update()
         {
-            _material = renderer.material;
-
-            if (_material.mainTextureScale == (Vector2)transform.localScale)
+            if (!_updateTiling)
             {
                 return;
             }
 
-            _material.mainTextureScale = transform.localScale;
-        }
-
-        private void Start()
-        {
-        }
-
-        private void Update()
-        {
-            
+            UpdateTiling();
         }
 
         #endregion /Unity methods
@@ -58,7 +47,8 @@ namespace Trollpants // todo Add project key, like "HE" or "WW"
 
         private void UpdateTiling()
         {
-            _material.mainTextureScale = transform.localScale;
+            _updateTiling = false;
+            renderer.sharedMaterial.mainTextureScale = new Vector2(Mathf.Abs(transform.localScale.x), Mathf.Abs(transform.localScale.y));
         }
 
         #endregion / Private methods

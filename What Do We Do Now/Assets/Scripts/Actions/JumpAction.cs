@@ -18,13 +18,14 @@ public class JumpAction : MonoBehaviour, IAction
         _direction = gameObject.GetComponent<ShapeeBase>().Direction;
         var jumpVector = new Vector2(_distance * _direction, _height);
         rigidbody2D.AddForce(jumpVector, ForceMode2D.Impulse);
+        rigidbody2D.AddTorque(UnityEngine.Random.Range(0f, 1f));
         _isMoving = true;
     }
 
     private void Awake()
     {
-        _height = 7.5f;
-        _distance = 2f;
+        _height = 6.5f;
+        _distance = 2.5f;
     }
 
     private void Update()
@@ -35,7 +36,7 @@ public class JumpAction : MonoBehaviour, IAction
             _jump = false;
         }
 
-        if (_isMoving && rigidbody2D.velocity.sqrMagnitude <= 0.1f)
+        if (_isMoving && rigidbody2D.velocity.sqrMagnitude <= 0.1f && (Mathf.Abs(rigidbody2D.angularVelocity) <= 0.01f))
         {
             Debug.Log("Done jumping");
             _isMoving = false;
