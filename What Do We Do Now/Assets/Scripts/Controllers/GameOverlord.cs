@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(ActionDistributer))]
 public class GameOverlord : MonoBehaviour
 {
-	bool mainMusicPlaying = false;
+//	bool mainMusicPlaying = false;
 
     public enum GameState
     {
@@ -75,12 +75,12 @@ public class GameOverlord : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (!mainMusicPlaying) {
+/*		if (!mainMusicPlaying) {
 			if (AudioManager.FabricLoaded) {
 				mainMusicPlaying = true;
 				AudioManager.PlaySound("MX/Main_Loop");
 				Debug.Log("play the music!");
 			}
-		}
+		}*/
     }
 }
