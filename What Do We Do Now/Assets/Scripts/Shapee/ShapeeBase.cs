@@ -69,6 +69,8 @@ public class ShapeeBase : MonoBehaviour
         switch (other.gameObject.layer)
         {
             case 10:        // obstacles
+            	// play a sound for death
+            	AudioManager.PlaySound("FX/Character/Death", gameObject);
                 IsDead = true;
                 break;
             case 11:        // exit
