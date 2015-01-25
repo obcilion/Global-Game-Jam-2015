@@ -55,6 +55,8 @@ public class JumpAction : MonoBehaviour, IAction
         // play a sound
         Debug.Log("Play a jump sound");
         AudioManager.PlaySound("FX/Character/Jump", gameObject);
+		// play a jump-spring sound
+        AudioManager.PlaySound("FX/Action/Jump-Spring", gameObject);
     }
 
     private void Jump()
