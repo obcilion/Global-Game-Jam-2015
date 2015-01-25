@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3327704}
   - 23: {fileID: 2327704}
   - 114: {fileID: 11427704}
-  - 61: {fileID: 6127704}
+  - 60: {fileID: 6037464}
   m_Layer: 10
   m_Name: Spikes
   m_TagString: Untagged
@@ -25,8 +25,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127704}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: -4.37113883e-08}
-  m_LocalPosition: {x: 2.22000003, y: 1.63499999, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -.70710808, w: -.707105577}
+  m_LocalPosition: {x: -8.65999985, y: -2.59000015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -58,17 +58,22 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127704}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!61 &6127704
-BoxCollider2D:
+--- !u!60 &6037464
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127704}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Size: {x: 1, y: .99389267}
-  m_Center: {x: -2.6703284e-10, y: -.00305449963}
+  m_IsTrigger: 0
+  m_Poly:
+    m_Paths:
+    - - {x: .108445376, y: .374869943}
+      - {x: .408793092, y: .33803317}
+      - {x: .49410063, y: -.454561204}
+      - {x: -.485758632, y: -.462902248}
+      - {x: -.367081434, y: .454820126}
 --- !u!114 &11427704
 MonoBehaviour:
   m_ObjectHideFlags: 1
