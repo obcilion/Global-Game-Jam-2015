@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(ActionDistributer))]
 public class GameOverlord : MonoBehaviour
 {
-	bool mainMusicPlaying = false;
+//	bool mainMusicPlaying = false;
 
     public enum GameState
     {
@@ -45,9 +45,6 @@ public class GameOverlord : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-		// Load the Fabric manager by loading up the Audio scene!
-		AudioManager.LoadFabric();
-
         _shapeeHerder = new ShapeeHerder();
         _shapeeHerder.Reset();
 
@@ -75,12 +72,12 @@ public class GameOverlord : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (!mainMusicPlaying) {
+/*		if (!mainMusicPlaying) {
 			if (AudioManager.FabricLoaded) {
 				mainMusicPlaying = true;
-//				AudioManager.PlaySound("MX/Music_Loop");
+				AudioManager.PlaySound("MX/Main_Loop");
 				Debug.Log("play the music!");
 			}
-		}
+		}*/
     }
 }
