@@ -66,9 +66,14 @@ public class ShapeeBase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == 10) // obstacles
+        switch (other.gameObject.layer)
         {
-            IsDead = true;
+            case 10:        // obstacles
+                IsDead = true;
+                break;
+            case 11:        // exit
+                Debug.Log("SUCCESS!");
+                break;
         }
     }
 

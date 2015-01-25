@@ -44,6 +44,8 @@ public class GameOverlord : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        DontDestroyOnLoad(this);
+
 		// Load the Fabric manager by loading up the Audio scene!
 		AudioManager.LoadFabric();
 

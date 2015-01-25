@@ -58,4 +58,9 @@ public class ActionDistributer : MonoBehaviour
         GiveAction((ActionType)actionIndex);
     }
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
+
 }
