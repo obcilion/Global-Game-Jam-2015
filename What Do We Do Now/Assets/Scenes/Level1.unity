@@ -222,7 +222,7 @@ GameObject:
   - 114: {fileID: 95874532}
   - 114: {fileID: 95874531}
   m_Layer: 5
-  m_Name: Btn_CreateShapee
+  m_Name: Btn_RestartLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -304,7 +304,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 677984495}
-        m_MethodName: SpawnShapee
+        m_MethodName: ReloadLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3209,7 +3209,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Create Shapee
+  m_Text: Restart
 --- !u!222 &1662196508
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4237,7 +4237,7 @@ GameObject:
   - 222: {fileID: 1967534350}
   - 114: {fileID: 1967534349}
   m_Layer: 5
-  m_Name: DebugMenu
+  m_Name: LeftMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4451,7 +4451,7 @@ GameObject:
   - 222: {fileID: 2120175237}
   - 114: {fileID: 2120175236}
   m_Layer: 5
-  m_Name: ActionsMenu
+  m_Name: RightMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
