@@ -55,8 +55,14 @@ public class GameOverlord : MonoBehaviour
 
         _actionDistributer = gameObject.GetComponent<ActionDistributer>();
         _actionDistributer.Herder = _shapeeHerder;
+    }
 
-        SpawnPoint = GameObject.FindWithTag("Spawn").transform;
+    private void OnLevelWasLoaded(int level)
+    {
+        if (level > 0 && !Application.loadedLevelName.Equals("Audio"))
+        {
+            SpawnPoint = GameObject.FindWithTag("Spawn").transform;
+        }
     }
 
     // Update is called once per frame
