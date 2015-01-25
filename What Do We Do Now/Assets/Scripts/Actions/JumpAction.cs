@@ -15,6 +15,11 @@ public class JumpAction : MonoBehaviour, IAction
     {
         _callback = callback;
         Debug.Log("Performing Jump Action");
+
+		// play a sound
+		Debug.Log("Play a jump sound");
+        AudioManager.PlaySound("FX/Character/Jump",gameObject);
+
         _direction = gameObject.GetComponent<ShapeeBase>().Direction;
         var jumpVector = new Vector2(_distance * _direction, _height);
         rigidbody2D.AddForce(jumpVector, ForceMode2D.Impulse);

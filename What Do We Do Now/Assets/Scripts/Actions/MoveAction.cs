@@ -19,6 +19,11 @@ public class MoveAction : MonoBehaviour, IAction
     public void Perform(Action callback)
     {
         Reset();
+
+		// play a sound
+		Debug.Log("Play a move sound");
+        AudioManager.PlaySound("FX/Character/Move",gameObject);
+
         _callback = callback;
         _direction = gameObject.GetComponent<ShapeeBase>().Direction;
         Debug.Log("Performing Move Action");
