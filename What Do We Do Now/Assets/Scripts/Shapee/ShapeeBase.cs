@@ -10,6 +10,7 @@ public class ShapeeBase : MonoBehaviour
 {
     public GameObject Body;
     public GameObject FaceFocused;
+    public GameObject FaceAfraid;
     public GameObject FaceHappy;
     public GameObject FaceDead;
 
@@ -63,7 +64,7 @@ public class ShapeeBase : MonoBehaviour
         IsDead = false;
         Direction = 1;
 
-        SetFace(0);
+        SetFace(3);
     }
 
     public void PerformNextAction(Action<ShapeeBase> callback)
@@ -72,6 +73,7 @@ public class ShapeeBase : MonoBehaviour
 
         if (ActionQueue.Count > 0)
         {
+            SetFace(0);
             ActionQueue.Dequeue().Perform(ActionComplete);
             Debug.Log("Performinc action, " + ActionQueue.Count + " actions left");
         }
@@ -111,6 +113,8 @@ public class ShapeeBase : MonoBehaviour
                 text.TweenScaleTo(new Vector3(4, 4)).SetDuration(.75f).SetEasing(_easingFunc).Play();
 
                 SetFace(2);
+
+                Invoke("LoadMenu", 3f);
                 break;
         }
     }
@@ -125,6 +129,7 @@ public class ShapeeBase : MonoBehaviour
         FaceFocused.SetActive(false);
         FaceHappy.SetActive(false);
         FaceDead.SetActive(false);
+        FaceAfraid.SetActive(false);
 
         switch (faceIndex)
         {
@@ -137,6 +142,14 @@ public class ShapeeBase : MonoBehaviour
             case 2:
                 FaceHappy.SetActive(true);
                 break;
+            case 3:
+                FaceAfraid.SetActive(true);
+                break;
         }
+    }
+
+    private void LoadMenu()
+    {
+        Application.LoadLevel(0);
     }
 }
