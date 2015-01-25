@@ -36,7 +36,7 @@ public class MoveAction : MonoBehaviour, IAction
 
     private void Awake()
     {
-        Distance = 77;
+        Distance = 74;
         Speed = 5;
         Acceleration = 1;
         Reset();

@@ -18,7 +18,7 @@ public class JumpAction : MonoBehaviour, IAction
         _direction = gameObject.GetComponent<ShapeeBase>().Direction;
         var jumpVector = new Vector2(_distance * _direction, _height);
         rigidbody2D.AddForce(jumpVector, ForceMode2D.Impulse);
-        rigidbody2D.AddTorque(UnityEngine.Random.Range(0f, 1f));
+        rigidbody2D.AddTorque(UnityEngine.Random.Range(-2f, 2f));
         _isMoving = true;
     }
 
